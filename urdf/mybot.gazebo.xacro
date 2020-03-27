@@ -132,6 +132,39 @@
     </sensor>
   </gazebo>
 
+
+
+  <!--bumper turtlebot3 insper-->
+  <gazebo reference="bumper_link">
+      <sensor name="contacts" type="contact">
+          <contact>
+            <collision>base_footprint_fixed_joint_lump__base_collision_collision_1</collision>
+          </contact>
+          <plugin name="gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
+            <always_on>true</always_on>
+            <robotNamespace>/bumper</robotNamespace>
+            <bumperTopicName>bumper_states</bumperTopicName>
+            <frameName>bumper</frameName>
+            <visualize>true</visualize>
+            <update_rate>50.0</update_rate>        
+          </plugin>
+      </sensor>
+      <material>Gazebo/Red</material>
+      <mu1>0.1</mu1>
+      <mu2>0.1</mu2>
+      <gravity>true</gravity>
+      <selfCollide>false</selfCollide>
+    </gazebo>
+
+
+
+
+
+
+
+
+
+  <!--camera turtlebot3 insper-->
   <!--link : https://www.raspberrypi.org/documentation/hardware/camera/-->
   <gazebo reference="camera_rgb_frame">
     <sensor type="camera" name="Pi Camera">

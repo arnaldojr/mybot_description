@@ -191,4 +191,34 @@
   </joint>
   <link name="camera_rgb_optical_frame"/>
 
+<!-- bumper turtlebot3 insper-->
+<link name="bumper_link">
+    <inertial>
+        <origin xyz="0.0 0.0 0.0" rpy="0 1.0 0"/>
+        <mass value="0.0000000001"/>
+        <inertia ixx="0.00000001" ixy="0.00000001" ixz="0.00000001" iyy="0.00000001" iyz="0.00000001" izz="0.00000001"/>
+    </inertial>
+    <visual>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 1.0 0"/>
+        <geometry>
+            <cylinder radius="0.015" length="0.015"/>
+        </geometry>
+        <material name="red">
+            <color rgba="1.0 0.0 0.0 1.0"/>
+        </material>
+    </visual>
+    <collision name="base_collision">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 1.0 0.0"/>
+        <geometry>
+            <cylinder radius="0.015" length="0.015"/>
+        </geometry>
+    </collision>
+  </link>
+  <joint name="bumper_joint" type="fixed">
+      <origin xyz="0.05 0.0 0.1" rpy="0.0 0.0 0.0"/>
+      <parent link="base_link"/>
+      <child link="bumper_link"/>
+  </joint>
+
+
 </robot>
