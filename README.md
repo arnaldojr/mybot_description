@@ -28,8 +28,8 @@ Para rodar o robô em um mundo criado do my_simulations:
 - IMU
 - Scan
 - Cmd vel
-### Em desenvolvimento
 - Bumper
+### Em desenvolvimento
 - Garra
  
 Para visualizar os topicos do robo *Abra um novo terminal* Crtl+Alt+t:
