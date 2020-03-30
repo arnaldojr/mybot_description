@@ -208,7 +208,7 @@
   </joint>
   <link name="camera_rgb_optical_frame"/>
 
-  <joint name="gripper_extension" type="prismatic">
+  <joint name="gripper_extension" type="fixed">
     <parent link="base_link"/>
     <child link="gripper_pole"/>
     <limit effort="1000.0" lower="-${width*2-.02}" upper="0" velocity="0.5"/>
@@ -301,5 +301,11 @@
 
   <xacro:gripper prefix="left" reflect="1" />
   <xacro:gripper prefix="right" reflect="-1" />
+  
+    <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
 </robot>
 
