@@ -3,6 +3,20 @@
   <xacro:include filename="$(find mybot_description)/urdf/common_properties.xacro"/>
   <xacro:include filename="$(find mybot_description)/urdf/mybot.gazebo.xacro"/>
 
+ <xacro:property name="width" value="0.2" />
+  <xacro:property name="leglen" value="0.6" />
+  <xacro:property name="polelen" value="0.2" />
+  <xacro:property name="bodylen" value="0.6" />
+  <xacro:property name="baselen" value="0.4" />
+  <xacro:property name="wheeldiam" value="0.07" />
+  <xacro:property name="pi" value="3.1415" />
+
+  <xacro:macro name="default_inertial" params="mass">
+    <inertial>
+      <mass value="${mass}" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+    </inertial>
+  </xacro:macro>
 
 
 
@@ -194,80 +208,104 @@
   </joint>
   <link name="camera_rgb_optical_frame"/>
 
-
   <joint name="gripper_extension" type="fixed">
     <parent link="base_link"/>
     <child link="gripper_pole"/>
-    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <limit effort="1000.0" lower="-${width*2-.02}" upper="0" velocity="0.5"/>
+    <origin rpy="0 0 0" xyz="${width-.01} 0 0.2"/>
+    <limit effort="30" velocity="0.2"/>
+    <dynamics damping="0.0" friction="0.0"/>
   </joint>
 
   <link name="gripper_pole">
     <visual>
       <geometry>
-        <cylinder length="0.1" radius="0.005"/>
+        <cylinder length="${polelen}" radius="0.01"/>
       </geometry>
-      <origin rpy="0 1.57075 0 " xyz="0 0 0.1"/>
+      <origin xyz="-0.1 0 -0.1" rpy="0 ${pi/2} 0 "/>
     </visual>
-  </link>
-
-
-  <joint name="left_gripper_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0.2 0.01 0"/>
-    <parent link="gripper_pole"/>
-    <child link="left_gripper"/>
-  </joint>
-
-  <link name="left_gripper">
-    <visual>
-      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+    <collision>
       <geometry>
-        <mesh filename="package:///mybot_description/meshes/sensors/l_finger.dae"/>
+        <cylinder length="${polelen}" radius="0.01"/>
       </geometry>
-    </visual>
+      <origin xyz="-0.1 0 -0.1" rpy="0 ${pi/2} 0 "/>
+    </collision>
+    <xacro:default_inertial mass="0.0005"/>
   </link>
 
-  <joint name="left_tip_joint" type="fixed">
-    <parent link="left_gripper"/>
-    <child link="left_tip"/>
-  </joint>
+  <transmission name="gripper_extension_trans" type="SimpleTransmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="gripper_extension_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="gripper_extension">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
 
-  <link name="left_tip">
-    <visual>
-      <origin rpy="0.0 0 0" xyz="0.09137 0.00495 0"/>
-      <geometry>
-        <mesh filename="package://mybot_description/meshes/sensors/l_finger_tip.dae"/>
-      </geometry>
-    </visual>
-  </link>
-  <joint name="right_gripper_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0.2 -0.01 0"/>
-    <parent link="gripper_pole"/>
-    <child link="right_gripper"/>
-  </joint>
+  <xacro:macro name="gripper" params="prefix reflect">
+    <joint name="${prefix}_gripper_joint" type="revolute">
+      <axis xyz="0 0 ${reflect}"/>
+      <limit effort="1000.0" lower="0.0" upper="0.548" velocity="0.5"/>
+      <origin rpy="0 0 0" xyz="${polelen} ${reflect*0.01} 0"/>
+      <parent link="gripper_pole"/>
+      <child link="${prefix}_gripper"/>
+      <limit effort="30" velocity="1.0"/>
+      <dynamics damping="0.0" friction="0.0"/>
+    </joint>
+    <link name="${prefix}_gripper">
+      <visual>
+        <origin rpy="${(reflect-1)/2*pi} 0 0" xyz="-0.2 0 -0.1"/>
+        <geometry>
+          <mesh filename="package://urdf_tutorial/meshes/l_finger.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://urdf_tutorial/meshes/l_finger.dae"/>
+        </geometry>
+        <origin rpy="${(reflect-1)/2*pi} 0 0" xyz="-0.2 0 -0.1"/>
+      </collision>
+      <xacro:default_inertial mass="0.0001"/>
+    </link>
+    <transmission name="${prefix}_gripper_trans" type="SimpleTransmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <actuator name="${prefix}_gripper_motor">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+      <joint name="${prefix}_gripper_joint">
+        <hardwareInterface>PositionJointInterface</hardwareInterface>
+      </joint>
+    </transmission>
 
-  <link name="right_gripper">
-    <visual>
-      <origin rpy="-3.1415 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="package://mybot_description/meshes/sensors/l_finger.dae"/>
-      </geometry>
-    </visual>
-  </link>
+    <joint name="${prefix}_tip_joint" type="fixed">
+      <parent link="${prefix}_gripper"/>
+      <child link="${prefix}_tip"/>
+    </joint>
+    <link name="${prefix}_tip">
+      <visual>
+        <origin rpy="${(reflect-1)/2*pi} 0 0" xyz="-0.091368 0.00495 -0.1"/>
+        <geometry>
+          <mesh filename="package://urdf_tutorial/meshes/l_finger_tip.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://urdf_tutorial/meshes/l_finger_tip.dae"/>
+        </geometry>
+        <origin rpy="${(reflect-1)/2*pi} 0 0" xyz="-0.091368 0.00495 -0.1"/>
+      </collision>
+      <xacro:default_inertial mass="0.0001"/>
+    </link>
+  </xacro:macro>
 
-  <joint name="right_tip_joint" type="fixed">
-    <parent link="right_gripper"/>
-    <child link="right_tip"/>
-  </joint>
-
-  <link name="right_tip">
-    <visual>
-      <origin rpy="-3.1415 0 0" xyz="0.09137 0.00495 0"/>
-      <geometry>
-        <mesh filename="package://mybot_description/meshes/sensors/l_finger_tip.dae"/>
-      </geometry>
-    </visual>
-  </link>
-
-
-
+  <xacro:gripper prefix="left" reflect="1" />
+  <xacro:gripper prefix="right" reflect="-1" />
+  
+    <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
 </robot>
+
