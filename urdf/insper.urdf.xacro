@@ -211,7 +211,9 @@
   </joint>
   <link name="camera_rgb_optical_frame"/>
 
- <joint name="gripper_extension" type="prismatic">
+ <joint name="gripper_extension" type="revolute">
+   <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="-1" upper="1" velocity="0.5"/>
     <parent link="base_link"/>
     <child link="gripper_pole"/>
     <limit effort="1000.0" lower="-0.38" upper="0" velocity="0.5"/>
@@ -232,7 +234,7 @@
       <origin rpy="0 0 0 " xyz="0 0 0"/>
     </collision>
     <inertial>
-      <mass value="0.0025"/>
+      <mass value="0.00125"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
@@ -270,7 +272,7 @@
       <origin rpy="0 0 0 " xyz="0 0 0"/>
     </collision>
     <inertial>
-      <mass value="0.00125"/>
+      <mass value="0.000625"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
@@ -308,7 +310,7 @@
       <origin rpy="0 0 0 " xyz="0 0 0"/>
     </collision>
     <inertial>
-      <mass value="0.00125"/>
+      <mass value="0.000625"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
