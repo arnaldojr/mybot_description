@@ -1,3 +1,39 @@
+# 22-09-2020 atualização garra
+
+atualização do URDF
+Criação dos arquivos .stl
+criação de xacro manual
+criação do plugin da garra
+criação dos arquivos de config yaml
+criação do launch de bringup
+
+Para rodar execute:
+
+Launch do Gazebo
+    roslaunch my_simulation mybot.launch 
+
+Launch para subir os controles da garra e RViz
+    roslaunch mybot_description mybot_control.launch 
+
+Para publicar um topico da garra:
+
+Joint1 = braço da garra. Valores máximos:
+    Garra recolhida: -1
+    Garra para frente: 0
+    Garra levantada: 1.5
+    rostopic pub -1 /mybot/joint1_position_controller/command std_msgs/Float64 "data: 0"
+Joint2 = Pinça da garra lado direito.
+    Pinça fechada: 0
+    Pinça aberta: -1
+Joint3 = Pinça da garra lado esquerdo.
+    Pinça fechada: 0
+    Pinça aberta: -1
+
+Visualizar arvore:
+    rosrun rqt_gui rqt_gui 
+
+
+
 # mybot_description turtlebot3 Insper
 
 <img src="/img.png" width="350" height="350">
