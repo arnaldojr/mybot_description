@@ -37,3 +37,16 @@ Para rodar o robô em um mundo criado do my_simulations:
 Para visualizar os topicos do robo *Abra um novo terminal* Crtl+Alt+t:
 
      rostopic list
+
+# 21-09-2020 atualização garra
+
+atualização do URDF
+criação de xacro manual
+criação do plugin da garra
+criação dos arquivos de config yaml
+criação do launch de bringup
+
+
+    roslaunch my_simulation mybot.launch 
+    roslaunch mybot_description mybot_control.launch 
+    rosrun rqt_gui rqt_gui 
