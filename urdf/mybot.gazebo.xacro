@@ -208,11 +208,11 @@
   <transmission name="joint1_tran">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="joint1">
-      <!--<hardwareInterface>PositionJointInterface</hardwareInterface>-->
+      <!-- <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>-->
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="joint1_actr">
-      <!--<hardwareInterface>PositionJointInterface</hardwareInterface>-->
+      <!-- <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>-->
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
@@ -221,11 +221,11 @@
   <transmission name="joint2_tran">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="joint2">
-      <!--<hardwareInterface>PositionJointInterface</hardwareInterface>-->
+      <!-- <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>-->
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="joint2_actr">
-      <!--<hardwareInterface>PositionJointInterface</hardwareInterface>-->
+      <!-- <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>-->
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
@@ -234,11 +234,11 @@
   <transmission name="joint3_tran">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="joint3">
-      <!--<hardwareInterface>PositionJointInterface</hardwareInterface>-->
+      <!-- <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>-->
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="joint3_actr">
-      <!--<hardwareInterface>PositionJointInterface</hardwareInterface>-->
+      <!-- <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>-->
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>

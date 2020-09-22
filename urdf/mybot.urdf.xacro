@@ -470,7 +470,7 @@
 
   <joint name="joint1" type="revolute">
     <origin rpy="0 0 0" xyz="0.0235 0.01 0.01"/>
-    <limit effort="25" lower="-3.14159265359" upper="3.14159265359" velocity="1.5"/>
+    <limit effort="1" lower="-1.50" upper="1.5" velocity="0.1"/>
     <parent link="servo_garra1"/>
     <child link="garra1garrabraco1"/>
     <axis xyz="1.0 0.0 0.0"/>
@@ -478,7 +478,7 @@
 
   <joint name="joint2" type="revolute">
     <origin rpy="0 0 0" xyz="-0.0041 0.076989 0.0065"/>
-    <limit effort="25" lower="-3.14159265359" upper="3.14159265359" velocity="1.5"/>
+    <limit effort="1" lower="-1" upper="0" velocity="0.1"/>
     <parent link="garra1garrabraco1"/>
     <child link="garra1garradireita1"/>
     <axis xyz="0.0 -0.0 1.0"/>
@@ -486,7 +486,7 @@
 
   <joint name="joint3" type="revolute">
     <origin rpy="0 0 0" xyz="-0.021 0.078672 0.0065"/>
-    <limit effort="25" lower="-3.14159265359" upper="3.14159265359" velocity="1.5"/>
+    <limit effort="1" lower="-1" upper="0" velocity="0.1"/>
     <parent link="garra1garrabraco1"/>
     <child link="garra1garraesquerda1"/>
     <axis xyz="0.0 -0.0 -1.0"/>
