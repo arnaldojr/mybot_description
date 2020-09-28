@@ -3,6 +3,8 @@
   <xacro:include filename="$(find mybot_description)/urdf/common_properties.xacro"/>
   <xacro:include filename="$(find mybot_description)/urdf/mybot.gazebo.xacro"/>
 
+
+  
   <link name="base_footprint"/>
 
   <joint name="base_joint" type="fixed">
@@ -243,15 +245,16 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://mybot_description/meshes/garra/base_link_garra.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mybot_description/meshes/garra/base_link_garra.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="silver"/>
-      <material/>
+      <gazebo reference="base_link_garra">
+      <material>Gazebo/Black</material>
+    </gazebo>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://mybot_description/meshes/garra/base_link_garra.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mybot_description/meshes/garra/base_link_garra.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -265,15 +268,16 @@
     <visual>
       <origin rpy="0 0 0" xyz="-0.007563 0.0205 -0.001"/>
       <geometry>
-        <mesh filename="package://mybot_description/meshes/garra/lat31.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mybot_description/meshes/garra/lat31.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="silver"/>
-      <material/>
+      <gazebo reference="lat31">
+      <material>Gazebo/Black</material>
+    </gazebo>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="-0.007563 0.0205 -0.001"/>
       <geometry>
-        <mesh filename="package://mybot_description/meshes/garra/lat31.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mybot_description/meshes/garra/lat31.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -287,15 +291,16 @@
     <visual>
       <origin rpy="0 0 0" xyz="0.016 0.0 -0.001"/>
       <geometry>
-        <mesh filename="package://mybot_description/meshes/garra/lat11.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mybot_description/meshes/garra/lat11.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="silver"/>
-      <material/>
+      <gazebo reference="lat11">
+      <material>Gazebo/Black</material>
+    </gazebo>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0.016 0.0 -0.001"/>
       <geometry>
-        <mesh filename="package://mybot_description/meshes/garra/lat11.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mybot_description/meshes/garra/lat11.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -309,15 +314,16 @@
     <visual>
       <origin rpy="0 0 0" xyz="0.002445 -0.0205 -0.001"/>
       <geometry>
-        <mesh filename="package://mybot_description/meshes/garra/lat21.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mybot_description/meshes/garra/lat21.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="silver"/>
-      <material/>
+      <gazebo reference="lat21">
+      <material>Gazebo/Black</material>
+    </gazebo>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0.002445 -0.0205 -0.001"/>
       <geometry>
-        <mesh filename="package://mybot_description/meshes/garra/lat21.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mybot_description/meshes/garra/lat21.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -331,15 +337,16 @@
     <visual>
       <origin rpy="0 0 0" xyz="-0.003609 5.8e-05 -0.004"/>
       <geometry>
-        <mesh filename="package://mybot_description/meshes/garra/servo_garra1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mybot_description/meshes/garra/servo_garra1.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="silver"/>
-      <material/>
+      <gazebo reference="servo_garra1">
+      <material>Gazebo/Black</material>
+    </gazebo>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="-0.003609 5.8e-05 -0.004"/>
       <geometry>
-        <mesh filename="package://mybot_description/meshes/garra/servo_garra1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mybot_description/meshes/garra/servo_garra1.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -353,15 +360,16 @@
     <visual>
       <origin rpy="0 0 0" xyz="-0.005038 0.0205 -0.0252"/>
       <geometry>
-        <mesh filename="package://mybot_description/meshes/garra/base_camera1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mybot_description/meshes/garra/base_camera1.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="silver"/>
-      <material/>
+      <gazebo reference="base_camera1">
+      <material>Gazebo/Black</material>
+    </gazebo>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="-0.005038 0.0205 -0.0252"/>
       <geometry>
-        <mesh filename="package://mybot_description/meshes/garra/base_camera1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mybot_description/meshes/garra/base_camera1.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -377,15 +385,13 @@
     <visual>
       <origin rpy="0 0 0" xyz="-0.027109 -0.009942 -0.014"/>
       <geometry>
-        <mesh filename="package://mybot_description/meshes/garra/garra1garrabraco1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mybot_description/meshes/garra/arm.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="silver"/>
-      <material/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="-0.027109 -0.009942 -0.014"/>
       <geometry>
-        <mesh filename="package://mybot_description/meshes/garra/garra1garrabraco1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mybot_description/meshes/garra/arm.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -401,17 +407,15 @@
     <visual>
       <origin rpy="0 0 0" xyz="-0.023009 -0.086931 -0.0205"/>
       <geometry>
-        <mesh filename="package://mybot_description/meshes/garra/garra1garradireita1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mybot_description/meshes/garra/direita.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="silver"/>
-      <material/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="-0.023009 -0.086931 -0.0205"/>
       <geometry>
-        <mesh filename="package://mybot_description/meshes/garra/garra1garradireita1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mybot_description/meshes/garra/direita.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-    </collision>
+      </collision>
   </link>
 
   <link name="garra1garraesquerda1">
@@ -425,15 +429,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="-0.006109 -0.088614 -0.0205"/>
       <geometry>
-        <mesh filename="package://mybot_description/meshes/garra/garra1garraesquerda1.stl" scale="0.001 0.001 0.001"/>
+       <mesh filename="package://mybot_description/meshes/garra/esquerda.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="silver"/>
-      <material/>
+      <material name="green"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="-0.006109 -0.088614 -0.0205"/>
       <geometry>
-        <mesh filename="package://mybot_description/meshes/garra/garra1garraesquerda1.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://mybot_description/meshes/garra/esquerda.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
