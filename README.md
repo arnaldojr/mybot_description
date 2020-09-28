@@ -45,7 +45,7 @@ Visualizar arvore:
 
 # mybot_description turtlebot3 Insper
 
-<img src="/iamge.png" width="450" height="450">
+<img src="/image.png" width="350" height="350">
 
 Criação do modelo 3d para simulador Gazebo para o robo turtlebot3 com implementações do robô físico do laboratório de informática, lab 404, para a matéria de robótica computacional, do curso de engenharia de computação Insper. 
 
