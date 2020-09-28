@@ -5,23 +5,26 @@
 
   <!-- load the controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-    output="screen" ns="/mybot" args="joint1_position_controller joint2_position_controller joint3_position_controller joint_state_controller"/>
+    output="screen" ns="/mybot" args="joint1_position_controller joint2_position_controller joint_state_controller"/>
 
-  <!-- convert joint states to TF transforms for rviz, etc
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
-    respawn="false" output="screen">
+  <!-- convert joint states to TF transforms for rviz, etc-->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
     <remap from="/joint_states" to="/mybot/joint_states" />
-  </node> -->
+  </node> 
 
-
+  
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+ 
+ <!-- convert joint states to TF transforms for rviz, etc
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
       <remap from="/joint_states" to="/mybot/joint_states" />
-  </node>
+  </node>-->
 
-
+ 
 
 
   <node pkg="rviz" type="rviz" name="rviz" args="-d $(find mybot_description)/rviz/model.rviz" output="screen"/>
 
 </launch>
+
+

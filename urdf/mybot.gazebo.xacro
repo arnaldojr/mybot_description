@@ -201,6 +201,18 @@
     <robotNamespace>/mybot</robotNamespace>
     </plugin>
 	</gazebo>
+  
+  <!-- loading plugin: mimic joints works in gazebo now -->
+  <gazebo>
+    <plugin name="gazebo_gripper_ros_control" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
+      <joint>joint2</joint>
+      <mimicJoint>joint3</mimicJoint>
+      <multiplier>1.0</multiplier>
+      <offset>0.0</offset>
+      <hasPID>mybot/gazebo_ros_control/pid_gains/joint3</hasPID>
+    </plugin>
+  </gazebo>
+
 
 
 	<!-- ROS Transmission -->
@@ -234,21 +246,17 @@
       <motorTorqueConstant>1</motorTorqueConstant>-->
     </actuator>
   </transmission>
-
+  
+  <!-- 
   <transmission name="joint3_tran">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="joint3">
-      <!--  <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>-->
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="joint3_actr">
-      <!--  <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>-->
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
-      <!--para teste hardware_interface/PositionJointInterface
-      <motorTorqueConstant>1</motorTorqueConstant>-->
     </actuator>
-  </transmission>
-
+  </transmission> -->
 
 </robot>
