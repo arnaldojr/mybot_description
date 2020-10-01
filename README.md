@@ -24,7 +24,7 @@ Joint2 = Pinça da garra com mimica (joint2 e joint3 juntos)
     Pinça fechada: 0
     Pinça aberta: -1
 
-    rostopic pub -1 /joint1_position_controller/command std_msgs/Float64 "data: 0"
+    rostopic pub -1 /joint2_position_controller/command std_msgs/Float64 "data: 0"
 
 ## Proximos testes
     
