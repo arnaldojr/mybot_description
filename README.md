@@ -1,9 +1,35 @@
-# proximas etapas
+# 01-10-2020 atualizações garra
 
-ajuste fino do PID
-corrigir posição das rodas no rviz
+    ajuste fino do PID (agora esta estavel)
+    ajuste do joint_state "source list"
+    criação de novos launchs
 
-teste de pegada 
+Para carregar o robo com as correções:
+
+    atualize os repositorios "my_simulation" e "mybot_description"
+
+    roslaunch my_simulation mybot_garra.launch
+    roslaunch mybot_description mybot_control2.launch 
+
+Joint1 = braço da garra. Valores máximos:
+
+    Garra recolhida: -1
+    Garra para frente: 0
+    Garra levantada: 1.5
+    
+    rostopic pub -1 /joint1_position_controller/command std_msgs/Float64 "data: 0"
+
+Joint2 = Pinça da garra com mimica (joint2 e joint3 juntos)
+
+    Pinça fechada: 0
+    Pinça aberta: -1
+
+    rostopic pub -1 /joint1_position_controller/command std_msgs/Float64 "data: 0"
+
+## Proximos testes
+    
+    teste de pegada
+
 
 
 # 28-09-2020 atualização garra
