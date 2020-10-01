@@ -1,3 +1,18 @@
+# proximas etapas
+
+ajuste fino do PID
+corrigir posição das rodas no rviz
+
+teste de pegada 
+
+
+# 28-09-2020 atualização garra
+
+ajuste de controle PID braço e garra (ainda precisa melhorar)
+criado plugin de mimica para a garra (joint2, joint3)
+config parametros .yaml
+correção state_published (published aparece no rviz e gazebo simuntaneo)
+
 # 22-09-2020 atualização garra
 
 atualização do URDF
