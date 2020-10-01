@@ -1,0 +1,62 @@
+digraph G {
+node [shape=box];
+"base_footprint" [label="base_footprint"];
+"base_link" [label="base_link"];
+"base_link_garra" [label="base_link_garra"];
+"lat31" [label="lat31"];
+"base_camera1" [label="base_camera1"];
+"lat11" [label="lat11"];
+"lat21" [label="lat21"];
+"servo_garra1" [label="servo_garra1"];
+"garra1garrabraco1" [label="garra1garrabraco1"];
+"garra1garradireita1" [label="garra1garradireita1"];
+"garra1garraesquerda1" [label="garra1garraesquerda1"];
+"bumper_link" [label="bumper_link"];
+"camera_link" [label="camera_link"];
+"camera_rgb_frame" [label="camera_rgb_frame"];
+"camera_rgb_optical_frame" [label="camera_rgb_optical_frame"];
+"caster_back_link" [label="caster_back_link"];
+"imu_link" [label="imu_link"];
+"base_scan" [label="base_scan"];
+"wheel_left_link" [label="wheel_left_link"];
+"wheel_right_link" [label="wheel_right_link"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_footprint" -> "base_joint" [label="xyz: 0 0 0.01 \nrpy: 0 -0 0"]
+"base_joint" -> "base_link"
+"base_link" -> "base_joint_garra" [label="xyz: 0.044 0.005 0.115 \nrpy: 0 0 -1.57"]
+"base_joint_garra" -> "base_link_garra"
+"base_link_garra" -> "Rigid1" [label="xyz: 0.007563 -0.0205 0.001 \nrpy: 0 -0 0"]
+"Rigid1" -> "lat31"
+"lat31" -> "Rigid5" [label="xyz: -0.002525 0 0.0242 \nrpy: 0 -0 0"]
+"Rigid5" -> "base_camera1"
+"base_link_garra" -> "Rigid2" [label="xyz: -0.016 0 0.001 \nrpy: 0 -0 0"]
+"Rigid2" -> "lat11"
+"base_link_garra" -> "Rigid3" [label="xyz: -0.002445 0.0205 0.001 \nrpy: 0 -0 0"]
+"Rigid3" -> "lat21"
+"base_link_garra" -> "Rigid4" [label="xyz: 0.003609 -5.8e-05 0.004 \nrpy: 0 -0 0"]
+"Rigid4" -> "servo_garra1"
+"servo_garra1" -> "joint1" [label="xyz: 0.0235 0.01 0.01 \nrpy: 0 -0 0"]
+"joint1" -> "garra1garrabraco1"
+"garra1garrabraco1" -> "joint2" [label="xyz: -0.0041 0.076989 0.0065 \nrpy: 0 -0 0"]
+"joint2" -> "garra1garradireita1"
+"garra1garrabraco1" -> "joint3" [label="xyz: -0.021 0.078672 0.0065 \nrpy: 0 -0 0"]
+"joint3" -> "garra1garraesquerda1"
+"base_link" -> "bumper_joint" [label="xyz: 0.04 0 0.015 \nrpy: 0 -0 0"]
+"bumper_joint" -> "bumper_link"
+"base_link" -> "camera_joint" [label="xyz: 0.05 -0.011 0.138 \nrpy: 0 -0 0"]
+"camera_joint" -> "camera_link"
+"camera_link" -> "camera_rgb_joint" [label="xyz: 0.003 0.011 0.009 \nrpy: 0 -0 0"]
+"camera_rgb_joint" -> "camera_rgb_frame"
+"camera_rgb_frame" -> "camera_rgb_optical_joint" [label="xyz: 0 0 0 \nrpy: -1.57 -5.55112e-17 -1.57"]
+"camera_rgb_optical_joint" -> "camera_rgb_optical_frame"
+"base_link" -> "caster_back_joint" [label="xyz: -0.081 0 -0.004 \nrpy: -1.57 0 0"]
+"caster_back_joint" -> "caster_back_link"
+"base_link" -> "imu_joint" [label="xyz: -0.032 0 0.068 \nrpy: 0 -0 0"]
+"imu_joint" -> "imu_link"
+"base_link" -> "scan_joint" [label="xyz: -0.032 0 0.172 \nrpy: 0 -0 0"]
+"scan_joint" -> "base_scan"
+"base_link" -> "wheel_left_joint" [label="xyz: 0 0.08 0.023 \nrpy: -1.57 0 0"]
+"wheel_left_joint" -> "wheel_left_link"
+"base_link" -> "wheel_right_joint" [label="xyz: 0 -0.08 0.023 \nrpy: -1.57 0 0"]
+"wheel_right_joint" -> "wheel_right_link"
+}

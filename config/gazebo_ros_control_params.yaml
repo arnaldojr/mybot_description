@@ -1,40 +1,28 @@
-mybot:
+#mybot:
 #http://answers.gazebosim.org/question/5468/gazebo_ros_pkgs-no-p-gain-specified-for-pid-in-positionjointinterface/
  gazebo_ros_control:
   pid_gains:
-    # these gains are used by the gazebo_ros_control plugin
-    joint1:
-      p: 20.0
-      i: 0.1
-      d: 0.0
-      i_clamp: 0.2
-      antiwindup: false
-      publish_state: true
-    joint2:
-      p: 20.0
-      i: 0.1
-      d: 0.0
-      i_clamp: 0.2
-      antiwindup: false
-      publish_state: true
+#    # these gains are used by the gazebo_ros_control plugin
+#    joint1:
+#      p: 20.0
+#      i: 0.1
+#      d: 0.0
+#      i_clamp: 0.2
+#      antiwindup: false
+#      publish_state: true
+#    joint2:
+#      p: 20.0
+#      i: 0.1
+#      d: 0.0
+#      i_clamp: 0.2
+#      antiwindup: false
+#      publish_state: true
     # the following gains are used by the gazebo_mimic_joint plugin
     joint3:
-      p: 20.0
-      i: 0.1
+      p: 10.0
+      i: 0.0
       d: 0.0
-      i_clamp: 0.2
+      i_clamp_min: -0.2
+      i_clamp_max: 0.0
       antiwindup: false
       publish_state: true
- 
- 
- 
- 
- 
- 
- 
- 
- 
-  # pid_gains:
-  #   joint1: {p: 10.0, i: 0.1, d: 1.0}
-  #   joint2: {p: 10.0, i: 0.1, d: 1.0}
-  #   joint3: {p: 10.0, i: 0.1, d: 1.0}

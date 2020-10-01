@@ -142,7 +142,7 @@
         </contact>
         <plugin name="gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
           <always_on>true</always_on>
-          <robotNamespace>/bumper</robotNamespace>
+        <!--  <robotNamespace>/bumper</robotNamespace> -->
           <bumperTopicName>bumper_states</bumperTopicName>
           <frameName>bumper</frameName>
           <visualize>true</visualize>
@@ -198,7 +198,7 @@
 
 	<gazebo>
 		<plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
-    <robotNamespace>/mybot</robotNamespace>
+   <!-- <robotNamespace>/mybot</robotNamespace> -->
     </plugin>
 	</gazebo>
   
@@ -209,10 +209,31 @@
       <mimicJoint>joint3</mimicJoint>
       <multiplier>1.0</multiplier>
       <offset>0.0</offset>
-      <hasPID>mybot/gazebo_ros_control/pid_gains/joint3</hasPID>
+      <!-- <hasPID>mybot/gazebo_ros_control/pid_gains/joint3</hasPID> -->
+      <hasPID>gazebo_ros_control/pid_gains/joint3</hasPID>
     </plugin>
   </gazebo>
 
+<!-- estudar se precisa disso mesmo -->
+  <gazebo reference="garra1garrabraco1">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+  </gazebo>
+  <gazebo reference="garra1garradireita1">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+  </gazebo>
+
+  <gazebo reference="garra1garraesquerda1">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+  </gazebo>
 
 
 	<!-- ROS Transmission -->

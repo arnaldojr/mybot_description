@@ -1,0 +1,25 @@
+<launch>
+
+
+  <!-- carrega node responsavel pelo controle da garra -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" args="joint1_position_controller joint2_position_controller"/>
+
+
+  <!-- start no robot_state_publisher que vai publicar valores joint_state usando o TF  -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+
+
+  <!-- start no joint states publisher, node reponsavel por publica valores do joint_state no rviz, etc-->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <rosparam param="source_list">[/joint_states]</rosparam>
+  </node>
+
+
+ <!-- start rviz -->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find mybot_description)/rviz/model.rviz" output="screen"/>
+
+  
+</launch>
+
+

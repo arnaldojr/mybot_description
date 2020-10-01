@@ -231,9 +231,9 @@
 <!-- garra turtlebot3 insper-->
 
   <joint name="base_joint_garra" type="fixed">
-    <parent link="base_footprint"/>
+    <parent link="base_link"/>
     <child link="base_link_garra"/>
-    <origin xyz="0.044 0.005 0.115" rpy="0 0 -1.57"/>
+    <origin xyz="0.044 0.005 0.108" rpy="0 0 -1.57"/>
   </joint>
 
   <link name="base_link_garra">
