@@ -1,9 +1,10 @@
 # mybot_description turtlebot3 Insper
 
-Criação do modelo 3d para simulador Gazebo para o robo turtlebot3 com implementações do robô físico do laboratório de informática, lab 404, para a matéria de robótica computacional, do curso de engenharia de computação Insper. 
+Modelo 3d para simulador Gazebo do robô turtlebot3 com implementações do robô físico do curso de robótica computacional da engenharia de computação Insper.
 
 <img src="/image.png" width="350" height="350">
 
+## Desenvolvido por: Laboratório de informática, lab404.
 
 # Como subir corretamente o robo com a garra no mapa do projeto.
 
